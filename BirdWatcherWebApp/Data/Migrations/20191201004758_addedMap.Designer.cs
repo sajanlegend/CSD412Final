@@ -4,14 +4,16 @@ using BirdWatcherWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BirdWatcherWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191201004758_addedMap")]
+    partial class addedMap
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,14 +76,11 @@ namespace BirdWatcherWebApp.Data.Migrations
                     b.Property<int?>("SpotterId")
                         .HasColumnType("int");
 
+                    b.Property<int>("latitude")
+                        .HasColumnType("int");
 
-                    b.Property<double>("latitutde")
-                        .HasColumnType("float");
-
-                    b.Property<double>("longitude")
-                        .HasColumnType("float");
-
-
+                    b.Property<int>("longitude")
+                        .HasColumnType("int");
 
                     b.HasKey("id");
 

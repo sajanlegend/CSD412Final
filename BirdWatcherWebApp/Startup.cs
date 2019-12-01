@@ -35,7 +35,7 @@ namespace BirdWatcherWebApp
             //Server=tcp:birdwatcher.database.windows.net,1433;Initial Catalog=BirdWatcher;Persist Security Info=False;User ID=sajan;Password={@Project412};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             // requires
