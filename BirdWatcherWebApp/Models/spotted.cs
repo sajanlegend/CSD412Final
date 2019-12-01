@@ -12,6 +12,9 @@ namespace BirdWatcherWebApp.Models
         public Bird SpottedBird { get; set; }
         public int QuantitySpotted { get; set; }
 
+        public int longitude { get; set; }
+
+        public int latitude { get; set; }
         public DateTime DateSpotted { get; }
     }
 }
