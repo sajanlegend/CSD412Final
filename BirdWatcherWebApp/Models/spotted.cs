@@ -13,7 +13,7 @@ namespace BirdWatcherWebApp.Models
         public int QuantitySpotted { get; set; }
 
         public double longitude { get; set; }
-        public double latitutde { get; set; }
+        public double latitude { get; set; }
 
 
  
