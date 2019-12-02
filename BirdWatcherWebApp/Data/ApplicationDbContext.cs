@@ -15,5 +15,6 @@ namespace BirdWatcherWebApp.Data
         }
         public DbSet<BirdWatcherWebApp.Models.Bird> Bird { get; set; }
         public DbSet<BirdWatcherWebApp.Models.spotted> spotted { get; set; }
+        public DbSet<BirdWatcherWebApp.Models.User> User { get; set; }
     }
 }

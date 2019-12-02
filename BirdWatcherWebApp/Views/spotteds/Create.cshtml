@@ -6,6 +6,8 @@
 @{
 
 }
+
+
 <h1>spotted</h1>
 
 <h4>spotted</h4>
@@ -36,34 +38,46 @@
     </div>
 </div>
 <h4>Select Sighting Location</h4>
-<div>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px; /* The height is 400 pixels */
+            width: 100%; /* The width is the width of the web page */
+        }
+    </style>
+</head>
+<body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
     <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 2,
-          center: new google.maps.LatLng(2.8,-187.3),
-          mapTypeId: 'terrain'
-        });
-    }
-    google.maps.event.addListener(map, 'click', function(event) {
-
-        var longit = event.LatLng.longit();
-        document.write(longit);
-        var latit = event.LatLng.latit();
-        document.write(latit);
-});
-
-
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: -25.344, lng: 131.036 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 4, center: uluru });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({ position: uluru, map: map });
+        }
     </script>
-</div>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlsKQ9J321eDpQ1droqnBHoLUkneA0W9A&callback=initMap">
-</script>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlsKQ9J321eDpQ1droqnBHoLUkneA0W9A&callback=initMap">
+    </script>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
+</html>
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
