@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BirdWatcherWebApp.Data;
+using BirdWatcherWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,11 +13,17 @@ namespace BirdWatcherWebApp
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public ValuesController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Bird> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _context.Bird;
         }
 
         // GET api/<controller>/5
