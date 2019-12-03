@@ -4,14 +4,16 @@ using BirdWatcherWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BirdWatcherWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191130095921_addedModel")]
+    partial class addedModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,64 +34,6 @@ namespace BirdWatcherWebApp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Bird");
-                });
-
-            modelBuilder.Entity("BirdWatcherWebApp.Models.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("User");
-                });
-
-            modelBuilder.Entity("BirdWatcherWebApp.Models.spotted", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("QuantitySpotted")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SpottedBirdId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SpotterId")
-                        .HasColumnType("int");
-
-
-                    b.Property<double>("latitutde")
-                        .HasColumnType("float");
-
-                    b.Property<double>("longitude")
-                        .HasColumnType("float");
-
-
-
-                    b.HasKey("id");
-
-                    b.HasIndex("SpottedBirdId");
-
-                    b.HasIndex("SpotterId");
-
-                    b.ToTable("spotted");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -290,17 +234,6 @@ namespace BirdWatcherWebApp.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("BirdWatcherWebApp.Models.spotted", b =>
-                {
-                    b.HasOne("BirdWatcherWebApp.Models.Bird", "SpottedBird")
-                        .WithMany()
-                        .HasForeignKey("SpottedBirdId");
-
-                    b.HasOne("BirdWatcherWebApp.Models.User", "Spotter")
-                        .WithMany()
-                        .HasForeignKey("SpotterId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
