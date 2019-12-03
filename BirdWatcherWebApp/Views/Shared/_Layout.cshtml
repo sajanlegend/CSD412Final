@@ -30,11 +30,11 @@
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Birds" asp-action="Create">Add Birds</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="spotteds" asp-action="Create">Spot a Bird!</a>
                             </li>
                         }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Birds" asp-action="Index">View Birds</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="spotteds" asp-action="Index">Where are the Birds?</a>
                         </li>
                     </ul>
                 </div>
