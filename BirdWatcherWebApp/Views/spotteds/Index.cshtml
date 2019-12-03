@@ -15,6 +15,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.QuantitySpotted)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.longitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.latitude)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -23,6 +29,12 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.QuantitySpotted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.latitude)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |

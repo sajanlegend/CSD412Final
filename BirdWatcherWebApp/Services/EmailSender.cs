@@ -6,6 +6,8 @@ using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Threading.Tasks;
+using System.Net;
+using System.Net.Mail;
 
 namespace BirdWatcherWebApp.Services
 {
@@ -41,5 +43,23 @@ namespace BirdWatcherWebApp.Services
 
             return client.SendEmailAsync(msg);
         }
+
+       /* public Task SendEmailAsync(string email, string subject, string htmlMessage)
+        {
+            var client = new SmtpClient("smtp.gmail.com", 587)
+            {
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential("BirdWatcherWebApp412@gmail.com", "@Project412")
+            };
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress("account-security-noreply@ygmail.com")
+            };
+            mailMessage.To.Add(email);
+            mailMessage.Subject = subject;
+            mailMessage.Body = htmlMessage;
+            return client.SendMailAsync(mailMessage);
+        }*/
+
     }
 }
