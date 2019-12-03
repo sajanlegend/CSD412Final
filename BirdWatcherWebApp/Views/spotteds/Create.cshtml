@@ -19,12 +19,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="longitude" class="control-label"></label>
-                <input asp-for="longitude" class="form-control" />
+                <input asp-for="longitude" class="form-control" id="longitude" />
                 <span asp-validation-for="longitude" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="latitude" class="control-label"></label>
-                <input asp-for="latitude" class="form-control" />
+                <input asp-for="latitude" class="form-control" id="latitude" />
                 <span asp-validation-for="latitude" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -64,7 +64,7 @@
 
                 // display the lat/lng in your form's lat/lng fields
                 document.getElementById("latitude").value = event.latLng.lat();
-                document.getElementById("longitude").value = event.latLng.long();
+                document.getElementById("longitude").value = event.latLng.lng();
 
 
             });
