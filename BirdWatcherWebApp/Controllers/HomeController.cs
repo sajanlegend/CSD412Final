@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BirdWatcherWebApp.Models;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace BirdWatcherWebApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IEmailSender _emailSender;
+
+     
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -33,5 +37,11 @@ namespace BirdWatcherWebApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult SendEmail()
+        {
+            return View();
+        }
+       
     }
 }

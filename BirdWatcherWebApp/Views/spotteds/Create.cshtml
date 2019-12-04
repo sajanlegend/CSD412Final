@@ -1,21 +1,22 @@
 ﻿@model BirdWatcherWebApp.Models.spotted
 
 @{
-    ViewData["Title"] = "spotted";
-}
-@{
-
+    ViewData["Title"] = "Create";
 }
 
-
-<h1>spotted</h1>
+<h1>Create</h1>
 
 <h4>spotted</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="spotted">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Bird" class="control-label"></label>
+                <input asp-for="Bird" class="form-control" />
+                <span asp-validation-for="Bird" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="QuantitySpotted" class="control-label"></label>
                 <input asp-for="QuantitySpotted" class="form-control" />
@@ -37,8 +38,8 @@
         </form>
     </div>
 </div>
-<h4>Select Sighting Location</h4>
 
+<h4>Where Did You Spot the Bird?</h4>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,20 +54,27 @@
 <body>
     <div id="map"></div>
     <script>
-        var map;
-        function initMap() {
+        var map;           
+        function initMap() { //Creating our map object
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 2,
                 center: new google.maps.LatLng(2.8, -187.3),
                 mapTypeId: 'terrain'
             });
+
+            google.maps.event.addListener(map, 'click', function (event) {
+                //var longit = event.LatLng.longit();
+                //document.write(longit);
+                //var latit = event.LatLng.latit();
+                //document.write(latit);
+
+                // display the lat/lng in your form's lat/lng fields
+                document.getElementById("latitude").value = event.latLng.lat();
+                document.getElementById("longitude").value = event.latLng.lng();
+
+
+            });
         }
-        google.maps.event.addListener(map, 'click', function (event) {
-            var longit = event.LatLng.longit();
-            document.write(longit);
-            var latit = event.LatLng.latit();
-            document.write(latit);
-        });
     </script>
 
     <script async defer
@@ -78,8 +86,6 @@
     </div>
 </body>
 </html>
-
-
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

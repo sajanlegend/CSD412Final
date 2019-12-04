@@ -10,13 +10,20 @@ namespace BirdWatcherWebApp.Models
         public int id { get; set; }
         public User Spotter { get; set; }
         public Bird SpottedBird { get; set; }
+
+        public string Bird { get; set; }
         public int QuantitySpotted { get; set; }
 
         public double longitude { get; set; }
+
+
         public double latitude { get; set; }
+
+       
 
 
  
+
         public DateTime DateSpotted { get; }
     }
 }
