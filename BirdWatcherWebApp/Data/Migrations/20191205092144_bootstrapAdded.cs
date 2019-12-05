@@ -2,7 +2,7 @@
 
 namespace BirdWatcherWebApp.Data.Migrations
 {
-    public partial class mapAdded : Migration
+    public partial class bootstrapAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

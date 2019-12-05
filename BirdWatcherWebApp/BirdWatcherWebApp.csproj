@@ -7,6 +7,18 @@
 
   <ItemGroup>
     <Compile Remove="Areas\Identity\Pages\BirdData.cshtml.cs" />
+    <Compile Remove="Data\Migrations\20191201012642_ted.cs" />
+    <Compile Remove="Data\Migrations\20191201012642_ted.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191203014522_MapWorking.cs" />
+    <Compile Remove="Data\Migrations\20191203014522_MapWorking.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191203015755_birdStringAdded.cs" />
+    <Compile Remove="Data\Migrations\20191203015755_birdStringAdded.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191203020640_birdStringImplemented.cs" />
+    <Compile Remove="Data\Migrations\20191203020640_birdStringImplemented.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191205064158_mapAdded.cs" />
+    <Compile Remove="Data\Migrations\20191205064158_mapAdded.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191205074445_spottedsCreate.cs" />
+    <Compile Remove="Data\Migrations\20191205074445_spottedsCreate.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,6 +27,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Bower" Version="1.3.11" />
     <PackageReference Include="MailKit" Version="2.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />

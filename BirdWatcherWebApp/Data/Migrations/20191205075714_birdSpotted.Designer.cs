@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BirdWatcherWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191201012642_ted")]
-    partial class ted
+    [Migration("20191205075714_birdSpotted")]
+    partial class birdSpotted
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -67,6 +67,9 @@ namespace BirdWatcherWebApp.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Bird")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("QuantitySpotted")
                         .HasColumnType("int");
 
@@ -76,7 +79,7 @@ namespace BirdWatcherWebApp.Data.Migrations
                     b.Property<int?>("SpotterId")
                         .HasColumnType("int");
 
-                    b.Property<double>("latitutde")
+                    b.Property<double>("latitude")
                         .HasColumnType("float");
 
                     b.Property<double>("longitude")

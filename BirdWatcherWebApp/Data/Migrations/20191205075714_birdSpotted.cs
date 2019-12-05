@@ -2,7 +2,7 @@
 
 namespace BirdWatcherWebApp.Data.Migrations
 {
-    public partial class birdStringImplemented : Migration
+    public partial class birdSpotted : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

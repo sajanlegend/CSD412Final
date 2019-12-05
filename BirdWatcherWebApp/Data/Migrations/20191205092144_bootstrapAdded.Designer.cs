@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BirdWatcherWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191203020640_birdStringImplemented")]
-    partial class birdStringImplemented
+    [Migration("20191205092144_bootstrapAdded")]
+    partial class bootstrapAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

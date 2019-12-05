@@ -2,7 +2,7 @@
 
 namespace BirdWatcherWebApp.Data.Migrations
 {
-    public partial class MapWorking : Migration
+    public partial class spottedsCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,10 +19,19 @@ namespace BirdWatcherWebApp.Data.Migrations
                 nullable: false,
                 oldClrType: typeof(int),
                 oldType: "int");
+
+            migrationBuilder.AddColumn<string>(
+                name: "Bird",
+                table: "spotted",
+                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropColumn(
+                name: "Bird",
+                table: "spotted");
+
             migrationBuilder.AlterColumn<int>(
                 name: "longitude",
                 table: "spotted",
