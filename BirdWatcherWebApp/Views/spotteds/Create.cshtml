@@ -13,11 +13,6 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Bird" class="control-label"></label>
-                <input asp-for="Bird" class="form-control" />
-                <span asp-validation-for="Bird" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="QuantitySpotted" class="control-label"></label>
                 <input asp-for="QuantitySpotted" class="form-control" />
                 <span asp-validation-for="QuantitySpotted" class="text-danger"></span>
@@ -38,55 +33,35 @@
         </form>
     </div>
 </div>
-
-<h4>Where Did You Spot the Bird?</h4>
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        /* Set the size of the div element that contains the map */
+<style>
+    /* Set the size of the div element that contains the map /
         #map {
-            height: 400px; /* The height is 400 pixels */
-            width: 100%; /* The width is the width of the web page */
-        }
-    </style>
-</head>
-<body>
-    <div id="map"></div>
-    <script>
-        var map;           
-        function initMap() { //Creating our map object
+            height: 400px; / The height is 400 pixels /
+            width: 100%; / The width is the width of the web page */
+    }
+</style>
+<div id="map"></div>
+<script>
+        var map;
+        function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 2,
                 center: new google.maps.LatLng(2.8, -187.3),
                 mapTypeId: 'terrain'
             });
-
             google.maps.event.addListener(map, 'click', function (event) {
                 //var longit = event.LatLng.longit();
                 //document.write(longit);
                 //var latit = event.LatLng.latit();
                 //document.write(latit);
-
                 // display the lat/lng in your form's lat/lng fields
-                document.getElementById("latitude").value = event.latLng.lat();
-                document.getElementById("longitude").value = event.latLng.lng();
-
-
+                document.getElementById("latitude").value = event.longit;
+                document.getElementById("longitude").value = lat;
             });
-        }
+    }
     </script>
-
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlsKQ9J321eDpQ1droqnBHoLUkneA0W9A&callback=initMap">
-    </script>
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
-</body>
-</html>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlsKQ9J321eDpQ1droqnBHoLUkneA0W9A&callback=initMap%22%3E" async defer>
+</script>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
